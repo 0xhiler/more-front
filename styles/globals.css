@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  body {
+    @apply text-white;
+  }
+}
+
+html {
+  background-color: #141414 !important;
+  padding: 0;
+  margin: 0;
+  font-family: Inter, sans-serif;  
+  color: #E0DFE3;
+  font-size: 11px;
+  font-weight: 100;
+}
+
+body{
+  color: #E0DFE3;
+  background-color: #141414;
+  padding: 0 5% ;
+  height: 100%;
+
+}
+
+.container {
+  max-width: 1280px;
+  padding: 5px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #333;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+tr {
+  font-size: 12px;
+  border: 1px solid #202020;
+  cursor: pointer;
+}
+
+/* To remove the bottom border from the last tr element within each tbody */
+tbody tr:last-child {
+  border-bottom: 0;
+}
+
+.glowing-text-primary{
+  color: #F5841F; 
+  padding-bottom: 10px;
+  position: relative; /* Position relative to use pseudo-element */
+  display: inline-block; /* Ensures the div does not stretch full width */
+}
+
+.glowing-text-secondary{
+  color: #F5841F; 
+  padding-bottom: 10px;
+  position: relative; /* Position relative to use pseudo-element */
+  display: inline-block; /* Ensures the div does not stretch full width */
+}
+
+
+.glowing-text-primary::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 200%;
+  height: 1px; /* Height of the glowing border */
+  background: linear-gradient(to left, rgba(255, 165, 0, 0), rgba(255, 165, 0, 1), rgba(255, 165, 0, 0)); /* Gradient effect */
+  transform: translateX(-50%); /* Center the pseudo-element */
+  box-shadow: 0 6px 16px 0 rgba(255, 165, 0, 2); /* More intense glowing effect */
+  border-radius: 8px; /* Optional: adds rounded corners to the glow */
+  pointer-events: none; /* Ensures the pseudo-element doesn't interfere with interactions */
+}
+
+.glowing-text-secondary::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 200%;
+  height: 1px; /* Height of the glowing border */
+  background: linear-gradient(to left, rgba(255, 165, 0, 0), rgba(255, 165, 0, 1), rgba(255, 165, 0, 0)); /* Gradient effect */
+  transform: translateX(-50%); /* Center the pseudo-element */
+  box-shadow: 0 6px 16px 0 rgba(255, 165, 0, 2); /* More intense glowing effect */
+  border-radius: 8px; /* Optional: adds rounded corners to the glow */
+  pointer-events: none; /* Ensures the pseudo-element doesn't interfere with interactions */
+}
+
+input {
+  background-color: #222;
+  border: none;
+  color: #fff;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.more-bg-primary {
+  background-color: #141414;
+}
+
+.more-bg-secondary {
+  background-color: #1e1e1e;  
+}
+
+.more-text-gray {
+  color: #757575;
+}
+
+.more-input-text-color {
+  color: #fff;
+}
+
+.more-input-bg-color {
+  background-color: #141414;
+}
+
+.light-font {
+  font-weight: 100 !important; /* Using !important to ensure override, use judiciously */
+}
+
+h1 {
+  text-transform: none;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.wallet-networks {
+  border-radius: 7px;
+  border: 1px solid;
+  border-color: #514d4d;
+}
+
+.wallet-menu {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.wallet-chevron {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: none;
+}
